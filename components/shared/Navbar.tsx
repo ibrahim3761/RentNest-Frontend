@@ -51,7 +51,7 @@ export function Navbar({ user }: NavbarProps) {
 
     const navItems = [
         { label: "Home", href: "/" },
-        { label: "About", href: "/about" },
+        { label: "About Us", href: "/about-us" },
         { label: "Properties", href: "/properties" },
     ];
 
