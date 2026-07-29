@@ -88,7 +88,7 @@ const RegisterForm = () => {
                     >
                         <Label
                             htmlFor="role-tenant"
-                            className="flex cursor-pointer items-center gap-3 rounded-md border border-input p-3 transition-colors has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
+                            className="flex cursor-pointer items-center gap-3 rounded-md border border-input p-3 transition-colors has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary/5"
                         >
                             <RadioGroupItem value="TENANT" id="role-tenant" />
                             <User className="h-4 w-4 text-muted-foreground" />
@@ -102,7 +102,7 @@ const RegisterForm = () => {
 
                         <Label
                             htmlFor="role-landlord"
-                            className="flex cursor-pointer items-center gap-3 rounded-md border border-input p-3 transition-colors has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-primary/5"
+                            className="flex cursor-pointer items-center gap-3 rounded-md border border-input p-3 transition-colors has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary/5"
                         >
                             <RadioGroupItem value="LANDLORD" id="role-landlord" />
                             <Home className="h-4 w-4 text-muted-foreground" />
