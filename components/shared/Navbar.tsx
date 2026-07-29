@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { LayoutDashboard, LogOut, User, Menu as MenuIcon } from "lucide-react";
+import { LayoutDashboard, LogOut, Menu as MenuIcon } from "lucide-react";
 import { logout } from "@/service/logout";
 import { NavbarProps } from "@/lib/type";
 
@@ -172,7 +172,7 @@ export function Navbar({ user }: NavbarProps) {
                                             <span className="sr-only">Toggle menu</span>
                                         </SheetTrigger>
 
-                                        <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+                                        <SheetContent side="right" className="w-70 sm:w-87.5">
                                             <div className="flex flex-col gap-6 mt-6">
                                                 {/* Mobile User Info */}
                                                 <div className="flex items-center gap-3 pb-4 border-b">
