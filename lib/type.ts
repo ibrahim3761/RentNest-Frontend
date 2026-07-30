@@ -104,3 +104,60 @@ export type IRentalRequestInput = {
   message?: string;
   moveInDate?: string;
 };
+
+export type IUserItem = {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  status: string;
+  phone: string;
+  address: string;
+  avatarUrl: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type IRentalRequest = {
+  id: string;
+  message: string | null;
+  status: string;
+  moveInDate: string | null;
+  tenantId: string;
+  propertyId: string;
+  createdAt: string;
+  updatedAt: string;
+  tenant: {
+    id: string;
+    name: string;
+    email: string;
+    avatarUrl: string | null;
+  };
+  property: {
+    id: string;
+    title: string;
+    location: string;
+    city: string;
+    price: number;
+  };
+};
+
+export type IPayment = {
+  id: string;
+  amount: number;
+  status: string;
+  stripeSessionId: string | null;
+  createdAt: string;
+  updatedAt: string;
+  rentalRequest: {
+    id: string;
+    tenant: {
+      name: string;
+      email: string;
+    };
+    property: {
+      title: string;
+      location: string;
+    };
+  };
+};

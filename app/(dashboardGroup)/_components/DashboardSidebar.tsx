@@ -11,7 +11,7 @@ import {
     LogOut,
     LayoutList,
     Menu,
-    Users,
+    CreditCard,
     X,
 } from "lucide-react";
 import Link from "next/link";
@@ -32,9 +32,9 @@ const landlordLinks = [
 
 const adminLinks = [
     { label: "Overview", href: "/admin-dashboard", icon: LayoutDashboard },
-    { label: "Manage Users", href: "/admin-dashboard/users", icon: Users },
     { label: "All Properties", href: "/admin-dashboard/properties", icon: Building2 },
     { label: "All Rentals", href: "/admin-dashboard/rentals", icon: FileText },
+    { label: "Payments", href: "/admin-dashboard/payments", icon: CreditCard },
     { label: "Categories", href: "/admin-dashboard/categories", icon: LayoutList },
 ];
 
