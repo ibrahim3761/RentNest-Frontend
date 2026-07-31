@@ -127,18 +127,35 @@ export type IRentalRequest = {
   propertyId: string;
   createdAt: string;
   updatedAt: string;
+
   tenant: {
     id: string;
     name: string;
     email: string;
     avatarUrl: string | null;
   };
+
   property: {
     id: string;
     title: string;
+    description: string;
     location: string;
     city: string;
     price: number;
+    bedrooms: number;
+    bathrooms: number;
+    area: number;
+    images: string[];
+    isAvailable: boolean;
+    landlordId: string;
+    categoryId: string;
+    createdAt: string;
+    updatedAt: string;
+
+    category: {
+      id: string;
+      name: string;
+    };
   };
 };
 

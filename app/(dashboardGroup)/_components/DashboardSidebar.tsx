@@ -27,7 +27,6 @@ const tenantLinks = [
 const landlordLinks = [
     { label: "Overview", href: "/landlord-dashboard", icon: LayoutDashboard },
     { label: "My Properties", href: "/landlord-dashboard/properties", icon: Building2 },
-    { label: "Rental Requests", href: "/landlord-dashboard/requests", icon: FileText },
 ];
 
 const adminLinks = [
