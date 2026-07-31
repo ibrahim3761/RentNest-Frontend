@@ -163,18 +163,96 @@ export type IPayment = {
   id: string;
   amount: number;
   status: string;
-  stripeSessionId: string | null;
+  transactionId: string;
+  sessionId: string;
+  paidAt: string | null;
+  rentalRequestId: string;
+  tenantId: string;
   createdAt: string;
   updatedAt: string;
+
+  tenant: {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    status: string;
+    phone: string | null;
+    address: string | null;
+    avatarUrl: string | null;
+    createdAt: string;
+    updatedAt: string;
+  };
+
   rentalRequest: {
     id: string;
-    tenant: {
-      name: string;
-      email: string;
-    };
+    message: string | null;
+    status: string;
+    moveInDate: string | null;
+    tenantId: string;
+    propertyId: string;
+    createdAt: string;
+    updatedAt: string;
+
     property: {
+      id: string;
       title: string;
+      description: string;
       location: string;
+      city: string;
+      price: number;
+      bedrooms: number;
+      bathrooms: number;
+      area: number;
+      images: string[];
+      isAvailable: boolean;
+      landlordId: string;
+      categoryId: string;
+      createdAt: string;
+      updatedAt: string;
     };
   };
+};
+
+export type ICreateReviewInput = {
+  propertyId: string;
+  rentalRequestId: string;
+  rating: number;
+  comment: string;
+};
+
+export type ITenantRentalRequest = {
+    id: string;
+    message: string | null;
+    status: string;
+    moveInDate: string | null;
+    tenantId: string;
+    propertyId: string;
+    createdAt: string;
+    updatedAt: string;
+    property: {
+        id: string;
+        title: string;
+        description: string;
+        location: string;
+        city: string;
+        price: number;
+        bedrooms: number;
+        bathrooms: number;
+        area: number;
+        images: string[];
+        isAvailable: boolean;
+        landlordId: string;
+        categoryId: string;
+        createdAt: string;
+        updatedAt: string;
+        category?: {
+            id: string;
+            name: string;
+            createdAt: string;
+        };
+        landlord?: ILandlord;
+    };
+    payment?: IPayment | null;
+    review?: IReview | null;
 };

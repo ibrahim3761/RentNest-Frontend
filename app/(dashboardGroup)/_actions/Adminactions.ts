@@ -1,16 +1,16 @@
 "use server";
 
-import { cookies } from "next/headers";
 import { revalidateTag } from "next/cache";
+import { isAccessTokenExist } from "@/service/refreshToken";
 
 const API = process.env.BACKEND_API_URL;
 
 async function getAuthHeaders() {
-    const cookieStore = await cookies();
-    const token = cookieStore.get("accessToken")?.value;
+    const accessToken = await isAccessTokenExist();
+
     return {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Cookie: `accessToken=${accessToken}`,
     };
 }
 

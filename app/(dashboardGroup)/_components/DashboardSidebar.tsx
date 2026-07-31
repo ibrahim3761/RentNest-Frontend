@@ -21,7 +21,7 @@ import { toast } from "sonner";
 
 const tenantLinks = [
     { label: "Overview", href: "/dashboard", icon: LayoutDashboard },
-    { label: "My Rentals", href: "/dashboard/rentals", icon: FileText },
+    { label: "My Payments", href: "/dashboard/payments", icon: CreditCard },
 ];
 
 const landlordLinks = [
