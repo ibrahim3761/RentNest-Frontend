@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { ITenantRentalRequest } from "@/lib/type";
 import {
     FileText, CheckCircle, Building2, MapPin, Calendar,
@@ -24,7 +24,6 @@ const statusColors: Record<string, string> = {
 
 export default function TenantDashboardPage() {
     const router = useRouter();
-    const queryClient = useQueryClient();
     const [payingId, setPayingId] = useState<string | null>(null);
 
     const { data, isLoading } = useQuery({
