@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import Link from "next/link";
 import { useState } from "react";
 import { createPayment, getTenantRentals } from "../_actions/tenantAction";
+import { useRouter } from "next/navigation";
 
 const PLACEHOLDER = "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop";
 
@@ -22,6 +23,7 @@ const statusColors: Record<string, string> = {
 };
 
 export default function TenantDashboardPage() {
+    const router = useRouter();
     const queryClient = useQueryClient();
     const [payingId, setPayingId] = useState<string | null>(null);
 
@@ -118,7 +120,8 @@ export default function TenantDashboardPage() {
                             return (
                                 <div
                                     key={rental.id}
-                                    className="bg-card border border-border rounded-xl p-4 flex flex-col sm:flex-row gap-4"
+                                    onClick={() => router.push(`/dashboard/rentals/${rental.id}`)}
+                                    className="bg-card border border-border rounded-xl p-4 flex flex-col sm:flex-row gap-4 cursor-pointer hover:border-primary/40 transition-colors"
                                 >
                                     {/* Property Image */}
                                     <div className="w-full sm:w-24 h-24 rounded-lg overflow-hidden bg-muted shrink-0">
@@ -130,12 +133,11 @@ export default function TenantDashboardPage() {
                                     <div className="flex-1 flex flex-col gap-2 min-w-0">
                                         <div className="flex items-start justify-between gap-2 flex-wrap">
                                             <div>
-                                                <Link
-                                                    href={`/dashboard/rentals/${rental.id}`}
+                                                <p
                                                     className="font-semibold text-foreground hover:text-primary transition-colors line-clamp-1"
                                                 >
                                                     {rental.property.title}
-                                                </Link>
+                                                </p>
                                                 <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
                                                     <MapPin className="w-3 h-3" />
                                                     {rental.property.location}, {rental.property.city}
@@ -177,7 +179,10 @@ export default function TenantDashboardPage() {
                                         {canPay && (
                                             <div className="flex items-center gap-2 pt-1">
                                                 <button
-                                                    onClick={() => payMutation.mutate(rental.id)}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        payMutation.mutate(rental.id);
+                                                    }}
                                                     disabled={isPayingThis}
                                                     className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors cursor-pointer disabled:opacity-50"
                                                 >
@@ -198,6 +203,7 @@ export default function TenantDashboardPage() {
                                             <div className="flex items-center gap-2 pt-1">
                                                 <Link
                                                     href={`/dashboard/rentals/${rental.id}`}
+                                                    onClick={(e) => e.stopPropagation()}
                                                     className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-amber-100 text-amber-700 hover:bg-amber-200 transition-colors"
                                                 >
                                                     <Star className="w-3.5 h-3.5" />
