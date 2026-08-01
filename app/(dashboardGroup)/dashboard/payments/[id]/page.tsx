@@ -26,7 +26,7 @@ export default function PaymentDetailPage() {
     });
 
     if (isLoading) {
-        return <div className="h-64 bg-muted animate-pulse rounded-xl max-w-2xl" />;
+        return <div className="h-64 bg-muted animate-pulse rounded-xl max-w-4xl mx-auto" />;
     }
 
     if (!data) {
