@@ -1,6 +1,6 @@
 # RentNest Frontend
 
-A modern full-stack rental property management platform built with **Next.js 15** and **TypeScript**. RentNest connects tenants with verified landlords — browse properties, submit rental requests, make payments via Stripe, and leave reviews.
+A modern full - stack rental property management platform built with **Next.js 15** and **TypeScript**. RentNest connects tenants with verified landlords - browse properties, submit rental requests, make payments via Stripe, and leave reviews.
 
 🔗 **Live Demo:** [https://rent-nest-frontend-phi.vercel.app](https://rent-nest-frontend-phi.vercel.app)  
 🔗 **Backend API:** [https://rent-nest-lilac.vercel.app](https://rent-nest-lilac.vercel.app)  
