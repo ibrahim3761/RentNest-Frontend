@@ -155,7 +155,3 @@ See [API_INTEGRATION.md](./API_INTEGRATION.md) for a full mapping of frontend co
 - **Next.js caching** — `revalidateTag` busts server-side cache immediately after mutations so data is always fresh
 
 ---
-
-## License
-
-This project was built as an academic assignment for the Bachelor of Science in Computer Science and Engineering program at International Islamic University Chittagong (IIUC).
