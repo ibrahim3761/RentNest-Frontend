@@ -32,6 +32,7 @@ export default function TenantDashboardPage() {
             const res = await getTenantRentals();
             return res?.data as ITenantRentalRequest[];
         },
+        refetchOnMount: "always",
     });
 
     const rentals = data || [];
