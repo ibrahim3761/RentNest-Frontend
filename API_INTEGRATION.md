@@ -73,6 +73,7 @@ This document maps every frontend component and server action to its correspondi
 | `admin-dashboard/page.tsx` → `getAllUsers` | GET | `/api/admin/users` | Fetch all platform users |
 | `admin-dashboard/page.tsx` → `updateUserStatus` | PATCH | `/api/admin/users/:id` | Ban or unban a user by updating their status |
 | `admin-dashboard/properties/page.tsx` → `getAdminProperties` | GET | `/api/admin/properties` | Fetch all properties on the platform |
+| `admin-dashboard/properties/page.tsx` → `deleteProperty` | DELETE | `/api/properties/:id` | Delete a property |
 | `admin-dashboard/rentals/page.tsx` → `getAdminRentals` | GET | `/api/admin/rentals` | Fetch all rental requests on the platform |
 | `admin-dashboard/payments/page.tsx` → `getAllPayments` | GET | `/api/payments` | Fetch all payments on the platform |
 | `admin-dashboard/payments/[id]/page.tsx` → `getPaymentById` | GET | `/api/payments/:id` | Fetch single payment with full tenant and property details |
