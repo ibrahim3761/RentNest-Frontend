@@ -1,8 +1,18 @@
+"use client";
 import { CheckCircle2, Home, LayoutDashboard } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function PaymentSuccessPage() {
+    const queryClient = useQueryClient();
+
+    useEffect(() => {
+        queryClient.invalidateQueries({
+            queryKey: ["tenant-rentals"],
+        });
+    }, [queryClient]);
     return (
         <div className="min-h-screen flex items-center justify-center bg-background px-4">
             <div className="max-w-md w-full bg-card border border-border rounded-2xl p-8 flex flex-col items-center gap-6 text-center shadow-lg">
