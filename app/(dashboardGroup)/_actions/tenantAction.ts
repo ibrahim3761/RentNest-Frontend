@@ -2,6 +2,7 @@
 
 import { isAccessTokenExist } from "@/service/refreshToken";
 import { ICreateReviewInput } from "@/lib/type";
+import { revalidateTag } from "next/cache";
 
 const API = process.env.BACKEND_API_URL;
 
@@ -17,7 +18,7 @@ async function getAuthHeaders(contentType = false) {
 export async function getTenantRentals() {
     const res = await fetch(`${API}/api/rentals`, {
         headers: await getAuthHeaders(),
-        next: { revalidate: 60, tags: ["tenant-rentals"] },
+        cache: "no-store",
     });
 
     return res.json();
@@ -48,6 +49,13 @@ export async function createReview(input: ICreateReviewInput) {
         headers: await getAuthHeaders(true),
         body: JSON.stringify(input),
     });
+
+    if(res.status === 200) {
+        // Invalidate the cache for the specific rental request to ensure fresh data
+        revalidateTag(`tenant-rental-${input.rentalRequestId}`, {
+            expire: 0,
+        });
+    }
 
     return res.json();
 }
