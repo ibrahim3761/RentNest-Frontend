@@ -9,9 +9,13 @@ export default function PaymentSuccessPage() {
     const queryClient = useQueryClient();
 
     useEffect(() => {
-        queryClient.invalidateQueries({
-            queryKey: ["tenant-rentals"],
-        });
+        const timer = setTimeout(() => {
+            queryClient.invalidateQueries({
+                queryKey: ["tenant-rentals"],
+            });
+        }, 2000);
+
+        return () => clearTimeout(timer);
     }, [queryClient]);
     return (
         <div className="min-h-screen flex items-center justify-center bg-background px-4">
