@@ -54,7 +54,7 @@ export default async function AdminPaymentDetailPage({ params }: PageProps) {
         : PLACEHOLDER;
 
     return (
-        <div className="flex flex-col gap-6 max-w-4xl">
+        <div className="flex flex-col gap-6 max-w-4xl mx-auto">
             {/* Back */}
             <Link
                 href="/admin-dashboard/payments"
