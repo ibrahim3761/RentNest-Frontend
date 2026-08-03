@@ -45,6 +45,23 @@ export async function getAdminProperties() {
     return res.json();
 }
 
+export async function deleteProperty(id: string) {
+    const res = await fetch(`${API}/api/landlord/properties/${id}`, {
+        method: "DELETE",
+        headers: await getAuthHeaders(),
+    });
+    const result = await res.json();
+    if (result.success) {
+        revalidateTag("properties",{
+            expire:0
+        });
+        revalidateTag("landlord-properties",{
+            expire:0
+        });
+    }
+    return result;
+}
+
 export async function getAdminRentals() {
     const res = await fetch(`${API}/api/admin/rentals`, {
         headers: await getAuthHeaders(),
